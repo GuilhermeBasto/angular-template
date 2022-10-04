@@ -1,0 +1,2641 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "Column",
+            "id": "interface-Column-70d0d51eaca516a709114103a5b16e62c161fd3df3846a5d10961575892740b83b31399ed85324c360be4d47d905da7f8741f415525cb9a240d4c0fc62b88d4f",
+            "file": "src/app/shared/ui/table/column.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface Column {\r\n  columnDef: string;\r\n  header: string;\r\n  cell: Function;\r\n  isLink?: boolean;\r\n  url?: string;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "cell",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Function",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "columnDef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "header",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "isLink",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "url",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "DropdownOption",
+            "id": "interface-DropdownOption-1b8da815c2f03fa3f1525c7b585cc02b999c709f924790eda4a5bbfc56a134a20845ec6b6790b9826593be4b11e7f2c0fe5314c4a893acfdbe8f16fc19c7e388",
+            "file": "src/app/shared/ui/dropdown/dropdown-option.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DropdownOption {\n  value: string;\n  label: string;\n}\n",
+            "properties": [
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "ModalService",
+            "id": "injectable-ModalService-1d628b5438386791e0955acb224778f12ec3a57a67d3677ea924f27ef0dff0b2d736043a1daf9bda0c08ab707506de8779ecc321ce7b3a9f387e8279aeb1edca",
+            "file": "src/app/shared/services/modal.service.ts",
+            "properties": [
+                {
+                    "name": "_display",
+                    "defaultValue": "new BehaviorSubject<ModalStatus>(ModalStatus.CLOSE)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "modifierKind": [
+                        121,
+                        144
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "close",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "open",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "watch",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Observable<ModalStatus>",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\nimport { BehaviorSubject, Observable } from 'rxjs';\nimport { ModalStatus } from './modal-status';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class ModalService {\n  private readonly _display = new BehaviorSubject<ModalStatus>(ModalStatus.CLOSE);\n\n  watch(): Observable<ModalStatus> {\n    return this._display.asObservable();\n  }\n\n  open() {\n    this._display.next(ModalStatus.OPEN);\n  }\n\n  close() {\n    this._display.next(ModalStatus.CLOSE);\n  }\n}\n",
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-2825b89050691607926ea1e6c347007e5427f7b5fe7c1113dafa93caf15be13c60c1a0f8cfc6cabfe3d18a83035043113ed5a5acca351b96d40ef32daba1366c",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'template'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'template';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<router-outlet></router-outlet>\n"
+        },
+        {
+            "name": "BaseIconComponent",
+            "id": "component-BaseIconComponent-2df0ce15a8798278101ab742ce7c5cd8983597d383b3e10a16e37a72983ac4402ee43b0f5371bdc1f4854acc87ee5f0b069bb0611299f93be8a3a25e06417bff",
+            "file": "src/app/shared/icons/base-icon/base-icon.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-base-icon",
+            "styleUrls": [
+                "./base-icon.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./base-icon.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "path",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-base-icon',\n  templateUrl: './base-icon.component.html',\n  styleUrls: ['./base-icon.component.scss'],\n})\nexport class BaseIconComponent {\n  @Input() path = '';\n\n  constructor() {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import 'helpers';\r\n",
+                    "styleUrl": "./base-icon.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "templateData": "<img class=\"pointer\" src=\"{{ path }}\" />\n"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-6a3dfe3ee4a933cf121c65caca8bcea3344e201b3ed1754e537df888843069cdcdbe812dcdece95c24469eed3f09fabdbf055a5a006e440d98332e7bc8d0a512",
+            "file": "src/app/shared/ui/button/button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-button",
+            "styleUrls": [
+                "./button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "large",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "loading",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "\"primary\" | \"secondary\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "clicked",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "EventEmitter<MouseEvent>"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "_loading",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "handleClick",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ButtonComponent {\n  @Input() disabled = false;\n  @Input() type: 'primary' | 'secondary' = 'primary';\n  @Input() large: boolean = false;\n\n  @Input() set loading(loading: boolean) {\n    this._loading = loading;\n  }\n\n  get loading() {\n    return this._loading;\n  }\n\n  private _loading = false;\n\n  @Output() public clicked: EventEmitter<MouseEvent> = new EventEmitter();\n\n  constructor() {}\n\n  handleClick(event: MouseEvent): void {\n    if (!this.disabled) {\n      this.clicked.emit(event);\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import 'palette';\n@import 'variables';\n\n.button {\n  min-width: 125px;\n  min-height: 40px;\n  width: 100%;\n  font-family: $font-family-base;\n  border-radius: $border-radius;\n  border: none;\n  font-weight: $font-weight-semibold;\n  font-size: $font-size-small;\n  line-height: $font-line-height-normal;\n  text-align: center;\n  justify-content: center;\n  padding: $button-padding;\n  z-index: $aboveBackground;\n  &:focus,\n  &.focus {\n    box-shadow: none;\n  }\n  &.button-primary {\n    &:not(:disabled) {\n      color: $dark-gray;\n      background-color: $gold;\n      &:hover {\n        background-color: $gold;\n        box-shadow: $button-box-shadow-primary;\n      }\n    }\n    &:disabled {\n      box-shadow: none;\n      background-color: $light-gray-2;\n      color: $gray;\n      cursor: not-allowed;\n    }\n  }\n\n  &.button-secondary {\n    &:not(:disabled) {\n      color: $white;\n      background-color: $gray;\n      &:hover {\n        background-color: $black;\n        box-shadow: $button-box-shadow-secondary;\n      }\n    }\n    &:disabled {\n      box-shadow: none;\n      color: $gray;\n      background-color: $light-gray-2;\n      cursor: not-allowed;\n    }\n  }\n  &.button-large {\n    min-width: 250px;\n  }\n}\n",
+                    "styleUrl": "./button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 24
+            },
+            "accessors": {
+                "loading": {
+                    "name": "loading",
+                    "setSignature": {
+                        "name": "loading",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "loading",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 14,
+                        "jsdoctags": [
+                            {
+                                "name": "loading",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "loading",
+                        "type": "",
+                        "returnType": "",
+                        "line": 18
+                    }
+                }
+            },
+            "templateData": "<button\n  type=\"button\"\n  class=\"button\"\n  [disabled]=\"disabled\"\n  (click)=\"handleClick($event)\"\n  [ngClass]=\"{ 'button-primary': type === 'primary', 'button-secondary': type === 'secondary', 'button-large': large }\"\n>\n  <ng-content></ng-content>\n</button>\n"
+        },
+        {
+            "name": "DashboardComponent",
+            "id": "component-DashboardComponent-daf024ab53efa76ddf2972f76942345c8f6426f1d57712dcee13334b221e2bad186a38397d595541c7ee435843cafd23b4bfcb5d9c69996f2eb01c9514d106d7",
+            "file": "src/app/views/dashboard/dashboard.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-dashboard",
+            "styleUrls": [
+                "./dashboard.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./dashboard.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "dropOptions",
+                    "defaultValue": "[\n    { label: 'one', value: '1' },\n    { label: 'two', value: '2' },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<DropdownOption>",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "form",
+                    "defaultValue": "this.fb.group({\n    search: this.fb.control(''),\n    value: this.fb.control(''),\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "tableColumns",
+                    "defaultValue": "[\n    { columnDef: 'id', header: 'ID', cell: (element: Record<string, any>) => `${element['id']}` },\n    { columnDef: 'name', header: 'Name', cell: (element: Record<string, any>) => `${element['name']}` },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "tableData",
+                    "defaultValue": "[\n    { id: 'id-1', name: 'Movies' },\n    { id: 'id-2', name: 'Music' },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { FormBuilder } from '@angular/forms';\nimport { ModalService } from 'src/app/shared/services/modal.service';\nimport { DropdownOption } from 'src/app/shared/ui/dropdown/dropdown-option';\n\n@Component({\n  selector: 'app-dashboard',\n  templateUrl: './dashboard.component.html',\n  styleUrls: ['./dashboard.component.scss'],\n})\nexport class DashboardComponent {\n  dropOptions: Array<DropdownOption> = [\n    { label: 'one', value: '1' },\n    { label: 'two', value: '2' },\n  ];\n\n  form = this.fb.group({\n    search: this.fb.control(''),\n    value: this.fb.control(''),\n  });\n\n  tableColumns = [\n    { columnDef: 'id', header: 'ID', cell: (element: Record<string, any>) => `${element['id']}` },\n    { columnDef: 'name', header: 'Name', cell: (element: Record<string, any>) => `${element['name']}` },\n  ];\n\n  tableData = [\n    { id: 'id-1', name: 'Movies' },\n    { id: 'id-2', name: 'Music' },\n  ];\n\n  constructor(private fb: FormBuilder, private modalService: ModalService) {}\n\n  onClick() {\n    console.log(this.form.value);\n    this.modalService.open();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./dashboard.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "modalService",
+                        "type": "ModalService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 30,
+                "jsdoctags": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "modalService",
+                        "type": "ModalService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<p>dashboard works!</p>\n<form [formGroup]=\"form\">\n  <app-input formControlName=\"search\" placeholder=\"Search\" label=\"label\"></app-input>\n  <app-button (clicked)=\"onClick()\" type=\"secondary\"> click me</app-button>\n  <app-dropdown [disabled]=\"false\" formControlName=\"value\" [options]=\"dropOptions\"></app-dropdown>\n</form>\n<app-table [tableColumns]=\"tableColumns\" [tableData]=\"tableData\"> </app-table>\n<app-modal>\n  <p>dashboard works!</p>\n</app-modal>\n"
+        },
+        {
+            "name": "DropdownComponent",
+            "id": "component-DropdownComponent-8a287a2108d39ba9971627ca3467fed0fcf33d315578e5230008db927d3c09aeba77d096fce0d099e9c95586f8cc3acaa332f961766c5df353b13dc22c5aee47",
+            "file": "src/app/shared/ui/dropdown/dropdown.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-dropdown",
+            "styleUrls": [
+                "./dropdown.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./dropdown.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "options",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "Array<DropdownOption>",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onChange",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 72,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onChangeSafe",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 67,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onTouched",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 74,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 54,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nUpdate form when DOM element value changes (view => model)\n",
+                    "description": "<p>Update form when DOM element value changes (view =&gt; model)</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 62,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nUpdate form when DOM element is blurred (view => model)\n",
+                    "description": "<p>Update form when DOM element is blurred (view =&gt; model)</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWrite form disabled state to the DOM element (model => view)\n",
+                    "description": "<p>Write form disabled state to the DOM element (model =&gt; view)</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 40,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWrite form value to the DOM element (model => view)\n",
+                    "description": "<p>Write form value to the DOM element (model =&gt; view)</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Optional, Self } from '@angular/core';\nimport { ControlValueAccessor, NgControl } from '@angular/forms';\n\nimport { DropdownOption } from './dropdown-option';\n\n@Component({\n  selector: 'app-dropdown',\n  templateUrl: './dropdown.component.html',\n  styleUrls: ['./dropdown.component.scss'],\n})\nexport class DropdownComponent implements ControlValueAccessor {\n  @Input() options: Array<DropdownOption> = [];\n  @Input() placeholder: string = '';\n  @Input() disabled: boolean = false;\n  @Input() label: string = '';\n\n  public value: string = '';\n\n  get formControl(): NgControl {\n    return this.ngControl;\n  }\n\n  constructor(\n    // Retrieve the dependency only from the local injector,\n    // not from parent or ancestors.\n    @Self()\n    // We want to be able to use the component without a form,\n    // so we mark the dependency as optional.\n    @Optional()\n    private ngControl: NgControl\n  ) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  /**\n   * Write form value to the DOM element (model => view)\n   */\n  writeValue(value: string): void {\n    this.value = value;\n  }\n\n  /**\n   * Write form disabled state to the DOM element (model => view)\n   */\n  setDisabledState(isDisabled: boolean): void {\n    this.disabled = isDisabled;\n  }\n\n  /**\n   * Update form when DOM element value changes (view => model)\n   */\n  registerOnChange(fn: () => void): void {\n    // Store the provided function as an internal method.\n    this.onChange = fn;\n  }\n\n  /**\n   * Update form when DOM element is blurred (view => model)\n   */\n  registerOnTouched(fn: () => void): void {\n    // Store the provided function as an internal method.\n    this.onTouched = fn;\n  }\n\n  onChangeSafe(event: Event): void {\n    const value = (event.target as HTMLSelectElement).value;\n    this.onChange(value);\n  }\n\n  onChange(event: unknown): void {}\n\n  onTouched(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import 'variables';\n@import 'palette';\n\n.label {\n  font-family: $font-family-base;\n  font-style: $font-style-normal;\n  font-weight: $font-weight-medium;\n  font-size: $font-size-xsmall;\n  line-height: $font-line-height-xsmall;\n  display: flex;\n  align-items: center;\n  letter-spacing: $letter-spacing-base;\n  color: $dark-gray;\n  flex: none;\n  order: 0;\n  flex-grow: 0;\n  margin: 8px 0;\n}\n\n.form-control {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: $dropdown-padding;\n  height: 40px;\n  border: $dropdown-border;\n  border-radius: $dropdown-border-radius;\n  &:focus,\n  &.focus {\n    border: $dropdown-border-focus;\n  }\n  &:disabled {\n    cursor: not-allowed;\n  }\n}\n\n.error {\n  border: $input-border-invalid;\n}\n",
+                    "styleUrl": "./dropdown.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "ngControl",
+                        "type": "NgControl",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 21,
+                "jsdoctags": [
+                    {
+                        "name": "ngControl",
+                        "type": "NgControl",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "accessors": {
+                "formControl": {
+                    "name": "formControl",
+                    "getSignature": {
+                        "name": "formControl",
+                        "type": "",
+                        "returnType": "NgControl",
+                        "line": 19
+                    }
+                }
+            },
+            "templateData": "<div class=\"form-group\">\n  <label *ngIf=\"label\" class=\"label\">{{ label }}</label>\n  <select\n    class=\"form-control\"\n    [value]=\"value\"\n    [disabled]=\"disabled\"\n    (change)=\"onChangeSafe($event)\"\n    (blur)=\"onTouched()\"\n    [ngClass]=\"{ error: formControl.dirty && formControl.errors }\"\n  >\n    <option class=\"options\" [value]=\"null\" disabled selected>{{ placeholder }}</option>\n    <option class=\"options\" *ngFor=\"let option of options\" [value]=\"option.value\">\n      {{ option.label }}\n    </option>\n  </select>\n  <div *ngIf=\"formControl.dirty && formControl.errors\">\n    <span class=\"error-message\" *ngIf=\"formControl.errors['required']\">\n      <ng-content class=\"error-message\" select=\"[error=required]\"></ng-content>\n    </span>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "EyeComponent",
+            "id": "component-EyeComponent-520564114d2b65a5640198472d189bc9f5050d20507e4d0ad658fa4aec2f64b4b8bceca88c01d46ecc41644710b7dba1bc34a8a5cf3113bb0a79167a7f7efdee",
+            "file": "src/app/shared/icons/eye/eye.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-eye",
+            "styleUrls": [
+                "./eye.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./eye.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "clickIcon",
+                    "defaultValue": "new EventEmitter<null>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Output } from '@angular/core';\n\n@Component({\n  selector: 'app-eye',\n  templateUrl: './eye.component.html',\n  styleUrls: ['./eye.component.scss'],\n})\nexport class EyeComponent {\n  @Output() clickIcon = new EventEmitter<null>();\n\n  constructor() {}\n\n  onClick() {\n    this.clickIcon.emit();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./eye.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "templateData": "<app-base-icon path=\"assets/icons/eye.svg\" (click)=\"onClick()\"></app-base-icon>\n"
+        },
+        {
+            "name": "InputComponent",
+            "id": "component-InputComponent-d942d6e74e07cd393875321f45b549307923c2c96baa90218ca39f79573fb5d6af65eacf233bdad31d55f9fd00230cb2b391e3e56f32d874ca5b49306bb723dd",
+            "file": "src/app/shared/ui/input/input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input",
+            "styleUrls": [
+                "./input.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "rightLabel",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "\"text\" | \"email\" | \"password\" | \"number\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onChange",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 75,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onChangeSafe",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 70,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onTouched",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 77,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 57,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nUpdate form when DOM element value changes (view => model)\n",
+                    "description": "<p>Update form when DOM element value changes (view =&gt; model)</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 65,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nUpdate form when DOM element is blurred (view => model)\n",
+                    "description": "<p>Update form when DOM element is blurred (view =&gt; model)</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 50,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWrite form disabled state to the DOM element (model => view)\n",
+                    "description": "<p>Write form disabled state to the DOM element (model =&gt; view)</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWrite form value to the DOM element (model => view)\n",
+                    "description": "<p>Write form value to the DOM element (model =&gt; view)</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "<p>Inspired from here <a href=\"https://ritchiejacobs.be/angular-custom-form-component\">https://ritchiejacobs.be/angular-custom-form-component</a></p>\n",
+            "rawdescription": "\n\nInspired from here https://ritchiejacobs.be/angular-custom-form-component\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Optional, Self } from '@angular/core';\nimport { ControlValueAccessor, NgControl } from '@angular/forms';\n\n/**\n * Inspired from here https://ritchiejacobs.be/angular-custom-form-component\n */\n\n@Component({\n  selector: 'app-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss'],\n})\nexport class InputComponent implements ControlValueAccessor {\n  @Input() disabled: boolean = false;\n  @Input() label: string = '';\n  @Input() placeholder: string = '';\n  @Input() type: 'text' | 'email' | 'password' | 'number' = 'text';\n  @Input() rightLabel: string = '';\n\n  public value: string = '';\n\n  get formControl(): NgControl {\n    return this.ngControl;\n  }\n\n  constructor(\n    // Retrieve the dependency only from the local injector,\n    // not from parent or ancestors.\n    @Self()\n    // We want to be able to use the component without a form,\n    // so we mark the dependency as optional.\n    @Optional()\n    private ngControl: NgControl\n  ) {\n    if (this.ngControl) {\n      this.ngControl.valueAccessor = this;\n    }\n  }\n\n  /**\n   * Write form value to the DOM element (model => view)\n   */\n  writeValue(value: string): void {\n    this.value = value;\n  }\n\n  /**\n   * Write form disabled state to the DOM element (model => view)\n   */\n  setDisabledState(isDisabled: boolean): void {\n    this.disabled = isDisabled;\n  }\n\n  /**\n   * Update form when DOM element value changes (view => model)\n   */\n  registerOnChange(fn: () => void): void {\n    // Store the provided function as an internal method.\n    this.onChange = fn;\n  }\n\n  /**\n   * Update form when DOM element is blurred (view => model)\n   */\n  registerOnTouched(fn: () => void): void {\n    // Store the provided function as an internal method.\n    this.onTouched = fn;\n  }\n\n  onChangeSafe(event: Event): void {\n    const value = (event.target as HTMLInputElement).value;\n    this.onChange(this.type === 'number' && value ? parseFloat(value) : value);\n  }\n\n  onChange(event: unknown): void {}\n\n  onTouched(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import 'palette';\n@import 'variables';\n\n.label {\n  font-family: $font-family-base;\n  font-style: $font-style-normal;\n  font-weight: $font-weight-medium;\n  font-size: $font-size-xsmall;\n  line-height: $font-line-height-xsmall;\n  display: flex;\n  align-items: center;\n  letter-spacing: $letter-spacing-base;\n  color: $dark-gray;\n  flex: none;\n  order: 0;\n  flex-grow: 0;\n  margin: 8px 0;\n}\n\n.input {\n  border: $input-border;\n  box-sizing: border-box;\n  border-radius: $input-border-radius;\n  border: $input-border;\n  padding: $input-padding;\n  &:focus,\n  &.focus {\n    border: $input-border-focus;\n  }\n  &:disabled {\n    cursor: not-allowed;\n  }\n}\n\n.input-container {\n  position: relative;\n  width: 100%;\n}\n\n.right-container {\n  position: absolute;\n  right: 0;\n  padding: 8px 16px;\n  cursor: pointer;\n}\n\n.error-message {\n  font-family: $font-family-base;\n  font-style: $font-style-normal;\n  font-weight: $font-weight-normal;\n  font-size: $font-size-smallest;\n  line-height: $font-line-height-base;\n  letter-spacing: $letter-spacing-base;\n  color: $error;\n  margin: 0;\n}\n\n.error {\n  border: $input-border-invalid;\n}\n",
+                    "styleUrl": "./input.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "ngControl",
+                        "type": "NgControl",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 24,
+                "jsdoctags": [
+                    {
+                        "name": "ngControl",
+                        "type": "NgControl",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "accessors": {
+                "formControl": {
+                    "name": "formControl",
+                    "getSignature": {
+                        "name": "formControl",
+                        "type": "",
+                        "returnType": "NgControl",
+                        "line": 22
+                    }
+                }
+            },
+            "templateData": "<div *ngIf=\"label || rightLabel\" class=\"d-flex justify-content-between\">\n  <label *ngIf=\"label\" class=\"label\">{{ label }}</label>\n  <label *ngIf=\"rightLabel\" class=\"label pointer\">\n    {{ rightLabel }}\n  </label>\n</div>\n\n<input\n  class=\"input\"\n  [type]=\"type\"\n  [placeholder]=\"placeholder\"\n  [value]=\"value\"\n  [disabled]=\"disabled\"\n  (input)=\"onChangeSafe($event)\"\n  (blur)=\"onTouched()\"\n  [ngClass]=\"{ error: formControl.dirty && formControl.errors }\"\n/>\n\n<div *ngIf=\"formControl.dirty && formControl.errors\">\n  <span class=\"error-message\" *ngIf=\"formControl.errors['email']\">\n    <ng-content class=\"error-message\" select=\"[error=email]\"></ng-content>\n  </span>\n  <span class=\"error-message\" *ngIf=\"formControl.errors['required']\">\n    <ng-content class=\"error-message\" select=\"[error=required]\"></ng-content>\n  </span>\n</div>\n​\n"
+        },
+        {
+            "name": "ModalComponent",
+            "id": "component-ModalComponent-b5d72eb87effcb6f703c456a47d67aa67d90565e6dff9dc861b0051739e8b5862ea98d0c9ad5e4314f6295ab27b09a5b677087ea4bd3626e948ea103a898a1e4",
+            "file": "src/app/shared/ui/modal/modal.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-modal",
+            "styleUrls": [
+                "./modal.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./modal.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "display$",
+                    "defaultValue": "new Observable()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<ModalStatus>",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "ModalStatus",
+                    "defaultValue": "ModalStatus",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        144
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "close",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { ModalStatus } from '../../services/modal-status';\nimport { ModalService } from '../../services/modal.service';\n\n@Component({\n  selector: 'app-modal',\n  templateUrl: './modal.component.html',\n  styleUrls: ['./modal.component.scss'],\n})\nexport class ModalComponent implements OnInit {\n  display$: Observable<ModalStatus> = new Observable();\n\n  readonly ModalStatus = ModalStatus;\n\n  constructor(private modalService: ModalService) {}\n\n  ngOnInit() {\n    this.display$ = this.modalService.watch();\n  }\n\n  close() {\n    this.modalService.close();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "section {\n  visibility: hidden;\n  opacity: 0;\n\n  &.open {\n    visibility: inherit;\n    opacity: 1;\n  }\n\n  display: fixed;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.2);\n\n  > div {\n    position: fixed;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    height: 200px;\n    width: 300px;\n    background: white;\n    padding: 64px;\n    border-radius: 8px;\n    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);\n  }\n\n  button.close {\n    background: none;\n    color: inherit;\n    border: none;\n    font: inherit;\n    cursor: pointer;\n    outline: none;\n    position: absolute;\n    top: 0;\n    left: 0;\n    padding: 16px;\n  }\n}\n",
+                    "styleUrl": "./modal.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "modalService",
+                        "type": "ModalService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 14,
+                "jsdoctags": [
+                    {
+                        "name": "modalService",
+                        "type": "ModalService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ng-container *ngIf=\"display$ | async as display\">\n  <section [ngClass]=\"{ open: display === ModalStatus.OPEN }\" (click)=\"close()\">\n    <div (click)=\"$event.stopPropagation()\">\n      <div><button class=\"close\" type=\"button\" (click)=\"close()\">X</button></div>\n      <ng-content (click)=\"$event.stopPropagation()\"></ng-content>\n    </div>\n  </section>\n</ng-container>\n"
+        },
+        {
+            "name": "TableComponent",
+            "id": "component-TableComponent-d6277e2048a96743f07fcdce80d29d5699486c57ff75fc1626c6654b66cc4cb9f4be364d590db09b812c0c876fdbc9cb5fc4a51ed1bded48cb4a3f7c4dda8057",
+            "file": "src/app/shared/ui/table/table.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-table",
+            "styleUrls": [
+                "./table.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./table.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "tableColumns",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "Array<Column>",
+                    "decorators": []
+                },
+                {
+                    "name": "tableData",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "Array<T>",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "details",
+                    "defaultValue": "new EventEmitter<T>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "args": [
+                        {
+                            "name": "col",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "col",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\nimport { Column } from './column';\n\n@Component({\n  selector: 'app-table',\n  templateUrl: './table.component.html',\n  styleUrls: ['./table.component.scss'],\n})\nexport class TableComponent<T> {\n  @Input() tableColumns: Array<Column> = [];\n  @Input() tableData: Array<T> = [];\n  @Output() details = new EventEmitter<T>();\n\n  constructor() {}\n\n  onClick(col: T) {\n    this.details.emit(col);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "table {\r\n  width: 100%;\r\n  border-collapse: collapse;\r\n\r\n  thead {\r\n    tr {\r\n      border-bottom: 1px solid #0b749b;\r\n    }\r\n    th {\r\n      font-weight: 700;\r\n      font-size: 10px;\r\n      text-align: left;\r\n      letter-spacing: 0;\r\n      color: #0b749b;\r\n      margin: 0;\r\n      padding: 0;\r\n      line-height: 20px;\r\n    }\r\n  }\r\n\r\n  tbody {\r\n    tr {\r\n      border-bottom: 1px solid #78849e66;\r\n    }\r\n\r\n    td {\r\n      font-size: 16px;\r\n      text-align: left;\r\n      line-height: 20px;\r\n      letter-spacing: 0;\r\n      color: #536b7a;\r\n      margin: 0;\r\n      padding: 12px 0;\r\n      align-items: center;\r\n    }\r\n  }\r\n}\r\n\r\n.empty-text {\r\n  margin: 8px 0;\r\n  font-size: 16px;\r\n  text-align: left;\r\n  line-height: 20px;\r\n  letter-spacing: 0;\r\n  color: #536b7a;\r\n}\r\n",
+                    "styleUrl": "./table.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 13
+            },
+            "templateData": "<table>\n  <thead>\n    <tr>\n      <ng-container *ngFor=\"let col of tableColumns\">\n        <th>{{ col.header }}</th>\n      </ng-container>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngIf=\"tableData.length; else empty\">\n      <ng-container *ngFor=\"let data of tableData\">\n        <tr>\n          <ng-container *ngFor=\"let col of tableColumns\">\n            <td>{{ col.cell(data) }}</td>\n          </ng-container>\n          <td><app-eye (clickIcon)=\"onClick(data)\"></app-eye></td>\n        </tr>\n      </ng-container>\n    </ng-container>\n  </tbody>\n</table>\n\n<ng-template #empty>\n  <p class=\"empty-text\">No data</p>\n</ng-template>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-291e4fc4847f7d8fa1213e38f5f1584706b67a1c70e9b0950861cef5ef55f111dc00cd25f167230db55c25cd9b872ff671bf70af894fa949806e1a81d52c6433",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { DashboardModule } from './views/dashboard/dashboard.module';\nimport { SharedModule } from './shared/shared.module';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule, AppRoutingModule, DashboardModule, SharedModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "DashboardModule"
+                        },
+                        {
+                            "name": "SharedModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "id": "module-AppRoutingModule-d1be38d61f97076625075ce178420f1d83cb66ab6b41db09bf44f5b9d6317d23f64f2fddedf0d5186d301db373fe9f923d5fe64bd6ed6f4e6fd37201b78b2eac",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [{ path: '', loadChildren: () => \"import('./views/views.module').then((m) => m.ViewsModule)\" }];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule],\n})\nexport class AppRoutingModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "DashboardModule",
+            "id": "module-DashboardModule-188f47a543ae3bf2c3877790f45e071f142237cbad5a944277529db309753b23111acd1bf469853fcb7ed0f97a388c1102bdbf24acf6a802f0fc367c2944b00c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/views/dashboard/dashboard.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { DashboardComponent } from './dashboard.component';\nimport { SharedModule } from 'src/app/shared/shared.module';\n\n@NgModule({\n  declarations: [DashboardComponent],\n  imports: [CommonModule, SharedModule],\n})\nexport class DashboardModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "DashboardComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "SharedModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "IconsModule",
+            "id": "module-IconsModule-f4c193279b5a5ff2aa3ee2ccb201b2263f1c256c9fd9c660d541ffdb9af2c73b05c9af8aa5d53dac559ed9f46a98681db863ad371717890a3077706fe58ce180",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/shared/icons/icons.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BaseIconComponent } from './base-icon/base-icon.component';\nimport { EyeComponent } from './eye/eye.component';\n\n@NgModule({\n  declarations: [BaseIconComponent, EyeComponent],\n  imports: [CommonModule],\n  exports: [EyeComponent],\n})\nexport class IconsModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BaseIconComponent"
+                        },
+                        {
+                            "name": "EyeComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "EyeComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SharedModule",
+            "id": "module-SharedModule-2cccde4bc5b1076b264ce7671575da7b418996667d8c0e82e0cb56d3a197dda41b38a40d7f1b4c0e3ea3ab5693f5d3855beb92a599280f47b0935cda924182b9",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/shared/shared.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { UiModule } from './ui/ui.module';\nimport { RouterModule } from '@angular/router';\nimport { ReactiveFormsModule } from '@angular/forms';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule, UiModule],\n  exports: [CommonModule, UiModule, RouterModule, ReactiveFormsModule],\n})\nexport class SharedModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "UiModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "UiModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "UiModule",
+            "id": "module-UiModule-686f594582fc63198a0bcdfebae2a4f8779bd759be8316656307ce4a92838d5f5d48917a7a9dd7765d0032ce9628b3641c01d967c597fe8989859089bf4bb33f",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/shared/ui/ui.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { InputComponent } from './input/input.component';\nimport { ButtonComponent } from './button/button.component';\nimport { DropdownComponent } from './dropdown/dropdown.component';\nimport { ModalComponent } from './modal/modal.component';\nimport { TableComponent } from './table/table.component';\nimport { IconsModule } from '../icons/icons.module';\n\n@NgModule({\n  declarations: [InputComponent, ButtonComponent, DropdownComponent, ModalComponent, TableComponent],\n  imports: [CommonModule, IconsModule],\n  exports: [InputComponent, ButtonComponent, DropdownComponent, ModalComponent, TableComponent],\n})\nexport class UiModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "DropdownComponent"
+                        },
+                        {
+                            "name": "InputComponent"
+                        },
+                        {
+                            "name": "ModalComponent"
+                        },
+                        {
+                            "name": "TableComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "IconsModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        },
+                        {
+                            "name": "DropdownComponent"
+                        },
+                        {
+                            "name": "InputComponent"
+                        },
+                        {
+                            "name": "ModalComponent"
+                        },
+                        {
+                            "name": "TableComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ViewsModule",
+            "id": "module-ViewsModule-6b0dcb0d94855ad592afbcc74de3b02a1151dd794ab9e9b025941766bacedc6fc8ce180debca33d066d59d51dae8657d254fb2c80c33566e9cebf028a21412a9",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/views/views.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nimport { ViewsRoutingModule } from './views-routing.module';\nimport { DashboardModule } from './dashboard/dashboard.module';\nimport { SharedModule } from '../shared/shared.module';\n\n@NgModule({\n  declarations: [],\n  imports: [SharedModule, ViewsRoutingModule, DashboardModule],\n})\nexport class ViewsModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "DashboardModule"
+                        },
+                        {
+                            "name": "SharedModule"
+                        },
+                        {
+                            "name": "ViewsRoutingModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ViewsRoutingModule",
+            "id": "module-ViewsRoutingModule-a0fc6c4130e9d4d02713897f130391d16c710f361fd6e23a241e4d6df8851f4cab56d1edc8899bbc67880f50bfcc9acbd343ddf7836632abc7ddc83f0d3bd733",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/views/views-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { DashboardComponent } from './dashboard/dashboard.component';\n\nconst routes: Routes = [\n  { path: 'dashboard', component: DashboardComponent },\n  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },\n];\n\n@NgModule({\n  imports: [RouterModule.forChild(routes)],\n  exports: [RouterModule],\n})\nexport class ViewsRoutingModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "formGroup",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new FormGroup({\n  text: new FormControl('', Validators.required),\n  email: new FormControl('', [Validators.required, Validators.email]),\n  number: new FormControl(null, Validators.required),\n})"
+            },
+            {
+                "name": "inputDisabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                  <app-input placeholder=\"insert text here!\" label=\"text label\"  formControlName=\"text\" disabled=\"true\">\n                  </app-input>\n                </form>`,\n  props: { formGroup },\n})"
+            },
+            {
+                "name": "inputEmail",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                <app-input placeholder=\"insert email here!\" label=\"email label\" type=\"email\" formControlName=\"email\">\n                <span error=\"required\">The email is required.</span>\n                <span error=\"email\">The email is invalid.</span>\n                </app-input>\n              </form>`,\n  props: { formGroup },\n})"
+            },
+            {
+                "name": "inputNumber",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                <app-input placeholder=\"insert numbers here!\" label=\"number label\" type=\"number\" formControlName=\"number\">\n                <span error=\"required\">The number is required.</span>\n                </app-input>\n              </form>`,\n  props: { formGroup },\n})"
+            },
+            {
+                "name": "inputPassword",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                <app-input placeholder=\"insert password here!\" label=\"password label\" type=\"password\" formControlName=\"text\">\n                <span error=\"required\">The password is required.</span>\n                </app-input>\n              </form>`,\n  props: { formGroup },\n})"
+            },
+            {
+                "name": "inputText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                <app-input placeholder=\"insert text here!\" label=\"text label\" formControlName=\"text\">\n                <span error=\"required\">The text is required.</span>\n                </app-input>\n              </form>`,\n  props: { formGroup },\n})"
+            },
+            {
+                "name": "primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button type=\"primary\" >Primary</app-button>`,\n})"
+            },
+            {
+                "name": "primaryDisabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button type=\"primary\" disabled=true >Primary disabled</app-button>`,\n})"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
+            },
+            {
+                "name": "secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button type=\"secondary\" >Secondary</app-button>`,\n})"
+            },
+            {
+                "name": "secondaryDisabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button type=\"secondary\" disabled=true >Secondary disabled</app-button>`,\n})"
+            },
+            {
+                "name": "table",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [TableComponent],\n    imports: [],\n  },\n  template: ` <app-table [tableColumns]=\"tableColumns\"[tableData]=\"tableData\"></app-table>`,\n  props: { tableColumns, tableData },\n})"
+            },
+            {
+                "name": "tableColumns",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Array<Column>",
+                "defaultValue": "[\n  { columnDef: 'id', header: 'ID', cell: (element: Record<string, any>) => `${element['id']}` },\n  { columnDef: 'name', header: 'Name', cell: (element: Record<string, any>) => `${element['name']}` },\n]"
+            },
+            {
+                "name": "tableData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  { id: 'id-1', name: 'Movies' },\n  { id: 'id-2', name: 'Music' },\n]"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [
+            {
+                "name": "ModalStatus",
+                "childs": [
+                    {
+                        "name": "OPEN",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "OPEN"
+                    },
+                    {
+                        "name": "CLOSE",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "CLOSE"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/shared/services/modal-status.ts"
+            }
+        ],
+        "groupedVariables": {
+            "src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/stories/Input.stories.ts": [
+                {
+                    "name": "formGroup",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new FormGroup({\n  text: new FormControl('', Validators.required),\n  email: new FormControl('', [Validators.required, Validators.email]),\n  number: new FormControl(null, Validators.required),\n})"
+                },
+                {
+                    "name": "inputDisabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                  <app-input placeholder=\"insert text here!\" label=\"text label\"  formControlName=\"text\" disabled=\"true\">\n                  </app-input>\n                </form>`,\n  props: { formGroup },\n})"
+                },
+                {
+                    "name": "inputEmail",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                <app-input placeholder=\"insert email here!\" label=\"email label\" type=\"email\" formControlName=\"email\">\n                <span error=\"required\">The email is required.</span>\n                <span error=\"email\">The email is invalid.</span>\n                </app-input>\n              </form>`,\n  props: { formGroup },\n})"
+                },
+                {
+                    "name": "inputNumber",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                <app-input placeholder=\"insert numbers here!\" label=\"number label\" type=\"number\" formControlName=\"number\">\n                <span error=\"required\">The number is required.</span>\n                </app-input>\n              </form>`,\n  props: { formGroup },\n})"
+                },
+                {
+                    "name": "inputPassword",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                <app-input placeholder=\"insert password here!\" label=\"password label\" type=\"password\" formControlName=\"text\">\n                <span error=\"required\">The password is required.</span>\n                </app-input>\n              </form>`,\n  props: { formGroup },\n})"
+                },
+                {
+                    "name": "inputText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [InputComponent],\n    imports: [ReactiveFormsModule, BrowserModule],\n  },\n  template: ` <form [formGroup]=\"formGroup\">\n                <app-input placeholder=\"insert text here!\" label=\"text label\" formControlName=\"text\">\n                <span error=\"required\">The text is required.</span>\n                </app-input>\n              </form>`,\n  props: { formGroup },\n})"
+                }
+            ],
+            "src/stories/Button.stories.ts": [
+                {
+                    "name": "primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button type=\"primary\" >Primary</app-button>`,\n})"
+                },
+                {
+                    "name": "primaryDisabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button type=\"primary\" disabled=true >Primary disabled</app-button>`,\n})"
+                },
+                {
+                    "name": "secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button type=\"secondary\" >Secondary</app-button>`,\n})"
+                },
+                {
+                    "name": "secondaryDisabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [ButtonComponent],\n  },\n  template: `<app-button type=\"secondary\" disabled=true >Secondary disabled</app-button>`,\n})"
+                }
+            ],
+            "src/stories/Table.stories.ts": [
+                {
+                    "name": "table",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  moduleMetadata: {\n    declarations: [TableComponent],\n    imports: [],\n  },\n  template: ` <app-table [tableColumns]=\"tableColumns\"[tableData]=\"tableData\"></app-table>`,\n  props: { tableColumns, tableData },\n})"
+                },
+                {
+                    "name": "tableColumns",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<Column>",
+                    "defaultValue": "[\n  { columnDef: 'id', header: 'ID', cell: (element: Record<string, any>) => `${element['id']}` },\n  { columnDef: 'name', header: 'Name', cell: (element: Record<string, any>) => `${element['name']}` },\n]"
+                },
+                {
+                    "name": "tableData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  { id: 'id-1', name: 'Movies' },\n  { id: 'id-2', name: 'Music' },\n]"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {
+            "src/app/shared/services/modal-status.ts": [
+                {
+                    "name": "ModalStatus",
+                    "childs": [
+                        {
+                            "name": "OPEN",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "OPEN"
+                        },
+                        {
+                            "name": "CLOSE",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "CLOSE"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/shared/services/modal-status.ts"
+                }
+            ]
+        },
+        "groupedTypeAliases": {}
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "",
+                        "loadChildren": "./views/views.module#ViewsModule",
+                        "children": [
+                            {
+                                "kind": "module",
+                                "children": [
+                                    {
+                                        "name": "routes",
+                                        "filename": "src/app/views/views-routing.module.ts",
+                                        "module": "ViewsRoutingModule",
+                                        "children": [
+                                            {
+                                                "path": "dashboard",
+                                                "component": "DashboardComponent"
+                                            },
+                                            {
+                                                "path": "**",
+                                                "redirectTo": "dashboard",
+                                                "pathMatch": "full"
+                                            }
+                                        ],
+                                        "kind": "module"
+                                    }
+                                ],
+                                "module": "ViewsModule"
+                            }
+                        ]
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 2,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/icons/base-icon/base-icon.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BaseIconComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/icons/eye/eye.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "EyeComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/services/modal.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ModalService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/dropdown/dropdown-option.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "DropdownOption",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/dropdown/dropdown.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DropdownComponent",
+                "coveragePercent": 28,
+                "coverageCount": "4/14",
+                "status": "medium"
+            },
+            {
+                "filePath": "src/app/shared/ui/input/input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputComponent",
+                "coveragePercent": 33,
+                "coverageCount": "5/15",
+                "status": "medium"
+            },
+            {
+                "filePath": "src/app/shared/ui/modal/modal.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ModalComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/table/column.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Column",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/table/table.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TableComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/views/dashboard/dashboard.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DashboardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "primaryDisabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "secondaryDisabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formGroup",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "inputDisabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "inputEmail",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "inputNumber",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "inputPassword",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "inputText",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "table",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "tableColumns",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "tableData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

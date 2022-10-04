@@ -1,0 +1,46 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    tr {
+      border-bottom: 1px solid #0b749b;
+    }
+    th {
+      font-weight: 700;
+      font-size: 10px;
+      text-align: left;
+      letter-spacing: 0;
+      color: #0b749b;
+      margin: 0;
+      padding: 0;
+      line-height: 20px;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #78849e66;
+    }
+
+    td {
+      font-size: 16px;
+      text-align: left;
+      line-height: 20px;
+      letter-spacing: 0;
+      color: #536b7a;
+      margin: 0;
+      padding: 12px 0;
+      align-items: center;
+    }
+  }
+}
+
+.empty-text {
+  margin: 8px 0;
+  font-size: 16px;
+  text-align: left;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #536b7a;
+}

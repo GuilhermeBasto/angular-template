@@ -1,0 +1,32 @@
+@import 'variables';
+@import 'palette';
+
+/*
+--------------------------------------------------------------------------------
+Text and alignments
+--------------------------------------------------------------------------------
+*/
+
+.pointer {
+  cursor: pointer;
+}
+
+.semi-bold {
+  font-weight: $font-weight-semibold;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.gray {
+  color: $gray;
+}
+
+.gold {
+  color: $gold;
+}

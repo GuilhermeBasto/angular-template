@@ -1,0 +1,21 @@
+<div class="form-group">
+  <label *ngIf="label" class="label">{{ label }}</label>
+  <select
+    class="form-control"
+    [value]="value"
+    [disabled]="disabled"
+    (change)="onChangeSafe($event)"
+    (blur)="onTouched()"
+    [ngClass]="{ error: formControl.dirty && formControl.errors }"
+  >
+    <option class="options" [value]="null" disabled selected>{{ placeholder }}</option>
+    <option class="options" *ngFor="let option of options" [value]="option.value">
+      {{ option.label }}
+    </option>
+  </select>
+  <div *ngIf="formControl.dirty && formControl.errors">
+    <span class="error-message" *ngIf="formControl.errors['required']">
+      <ng-content class="error-message" select="[error=required]"></ng-content>
+    </span>
+  </div>
+</div>

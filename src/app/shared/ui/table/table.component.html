@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <ng-container *ngFor="let col of tableColumns">
+        <th>{{ col.header }}</th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="tableData.length; else empty">
+      <ng-container *ngFor="let data of tableData">
+        <tr>
+          <ng-container *ngFor="let col of tableColumns">
+            <td>{{ col.cell(data) }}</td>
+          </ng-container>
+          <td *ngIf="showDetails"><app-eye (clickIcon)="onClick(data)"></app-eye></td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </tbody>
+</table>
+
+<ng-template #empty>
+  <p class="empty-text">No data</p>
+</ng-template>
